@@ -2,7 +2,6 @@
 
 int sum_recursion(int n)
 {
-    static int sum = 0;
     if(n>0)
     {
        return sum_recursion(n-1) + n;
