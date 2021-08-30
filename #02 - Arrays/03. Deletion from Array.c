@@ -17,11 +17,14 @@ void display(struct Array arr)
 
 void del1(struct Array *arr, int index)
 {
-    for(int i = index; i < arr->length-1; i++)
+    if (index >= 0 && index < arr->length)
     {
-        arr->A[i] = arr->A[i+1];
+        for(int i = index; i < arr->length-1; i++)
+        {
+            arr->A[i] = arr->A[i+1];
+        }
+        arr->length--;
     }
-    arr->length--;
 }
 
 void del2(struct Array *arr, int value)
@@ -58,7 +61,7 @@ int main()
         scanf("%d", &arr.A[i]);
     arr.length=n;
 
-    del1(&arr, 2);
+    del1(&arr, 6);
     del2(&arr, 1);
     display(arr);
 }
