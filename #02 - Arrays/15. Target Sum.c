@@ -26,35 +26,19 @@ int max(struct Array arr)
     return m;
 }
 
-void sorted_duplicate(struct Array arr)
+void target_sum1(struct Array arr, int target)
 {
-    for (int i = 0; i < arr.length-1; i++)
+    for (int i = 0; i < arr.length; i++)
     {
-        if (arr.A[i+1] == arr.A[i])
-        {
-            printf("%d is duplicate.\n", arr.A[i]);
-            while (arr.A[i+1] == arr.A[i])
-                i++;
-        }
-    }
-}
-
-void unsorted_duplicate(struct Array arr)
-{
-    for (int i = 0; i < arr.length-1; i++)
-    {
-        int count = 1;
         for (int j = i+1; j < arr.length; j++)
         {
-            if (arr.A[j] == arr.A[i])
-                count++;
+            if (arr.A[i] + arr.A[j] == target)
+                printf("%d and %d add up to %d\n", arr.A[i], arr.A[j], target);
         }
-        if (count > 1)
-            printf("%d is duplicate.\n", arr.A[i]);
     }
 }
 
-void hash_duplicate(struct Array arr)
+void target_sum2(struct Array arr, int target)
 {
     struct Array arr2;
     int temp = 0;
@@ -69,11 +53,29 @@ void hash_duplicate(struct Array arr)
     {
         temp = arr.A[i];
         if (arr2.A[temp] == 0)
-            arr2.A[temp] = 1;
-        else if (arr2.A[temp] == 1)
         {
-            printf("%d is duplicate.\n", arr.A[i]);
-            arr2.A[temp]++;
+            arr2.A[temp] = 1;
+            if (arr2.A[target-temp] == 1)
+                printf("%d and %d add up to %d\n", temp, target-temp, target);
+        }
+    }
+}
+
+void target_sum_sorted(struct Array arr, int target)
+{
+    int l = 0, h = arr.length - 1, sum = 0;
+    while (l < h)
+    {
+        sum = arr.A[l] + arr.A[h];
+        if (sum < target)
+            l++;
+        else if (sum > target)
+            h--;
+        else
+        {
+            printf("%d and %d add up to to %d\n", arr.A[l], arr.A[h], target);
+            l++;
+            h--;
         }
     }
 }
@@ -81,11 +83,11 @@ void hash_duplicate(struct Array arr)
 int main()
 {
     struct Array arr;
-    int n, choice;
+    int n, target, choice;
 
-    printf("Press 1 for Sorted Array: \n");
-    printf("Press 2 for Unsorted Array: \n");
-    printf("Press 3 for Hash Method: \n");
+    printf("Press 1 for Brute Force Method: \n");
+    printf("Press 2 for Hash Method: \n");
+    printf("Press 3 for Two Pointer Method: \n");
     printf("You choose: ");
     scanf("%d", &choice);
 
@@ -105,17 +107,19 @@ int main()
 
     display(arr);
 
-    switch(choice)
+    printf("Enter target: ");
+    scanf("%d", &target);
+
+     switch(choice)
     {
         case 1:
-            sorted_duplicate(arr);
+            target_sum1(arr, target);
             break;
         case 2:
-            unsorted_duplicate(arr);
+            target_sum2(arr, target);
             break;
         case 3:
-            hash_duplicate(arr);
+            target_sum_sorted(arr, target);
             break;
     }
 }
-
