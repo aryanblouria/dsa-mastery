@@ -67,7 +67,7 @@ void unsorted_duplicate(struct Array arr)
 
 void hash_duplicate(struct Array arr)
 {
-    struct Array arr2;\
+    struct Array arr2;
     int temp = 0;
     arr2.A = (int*)malloc(max(arr)*sizeof(int));
     arr2.size = max(arr);
