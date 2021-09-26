@@ -7,11 +7,11 @@ int main()
     char s2[] = "Arjan";
     bool equal = true;
 
-    for (int i = 0, j = 0; (s1[i] != '\0') && (s2[j] != '\0'); i++, j++)
-        if (s1[i] != s2[j])
+    for (int i = 0; (s1[i] != '\0') && (s2[i] != '\0'); i++)
+        if (s1[i] != s2[i])
         {
             equal = false;
-            if (s1[i] < s2[j])
+            if (s1[i] < s2[i])
                 printf("S1 smaller than S2");
             else
                 printf("S1 greater than S2");
