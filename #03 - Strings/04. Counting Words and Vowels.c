@@ -2,7 +2,7 @@
 
 int main()
 {
-    char s[] = "My name is Aryan   Blouria";
+    char s[] = "My name is Aryan Blouria";
     int words = 1, vowels = 0, consonants = 0, i = 0;
 
     while (s[i] != '\0')
