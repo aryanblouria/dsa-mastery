@@ -43,6 +43,20 @@ void duplicate2(char s[], int length)
             printf("Count of %c is %d\n", i+97, t[i]);
 }
 
+void duplicate3(char s[], int length)
+{
+    int h = 0;
+    for (int i = 0; i < length; i++)
+    {
+        int b = 1;
+        b = b << s[i] - 97;
+        if ((b & h) != 0)
+            printf("%c is duplicated.", s[i]);
+        else
+            h = b | h;
+    }
+}
+
 int main()
 {
     char s[] = "abracadabra";
@@ -53,5 +67,6 @@ int main()
     int length = l;
     duplicate1(s, length);
     duplicate2(s, length);
+    duplicate3(s, length);
 
 }
