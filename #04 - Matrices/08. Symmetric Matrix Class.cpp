@@ -39,11 +39,11 @@ void Symmetric_Matrix::symm_ltm_display()
         for(int j = 1; j <= dim; j++)
         {
             if (i >= j)
-                printf("%d ", arr[(i * (i-1)/2) + j - 1]);
+                cout<<arr[(i * (i-1)/2) + j - 1]<<" ";
             else
-                printf("%d ", arr[(j * (j-1)/2) + i - 1]);
+                cout<<arr[(j * (j-1)/2) + i - 1]<<" ";
         }
-        printf("\n");
+        cout<<"\n";
     }
 }
 
@@ -64,11 +64,11 @@ void Symmetric_Matrix::symm_utm_display()
         for(int j = 1; j <= dim; j++)
         {
             if (j >= i)
-                printf("%d ", arr[(j * (j-1)/2) + i - 1]);
+                cout<<arr[(j * (j-1)/2) + i - 1]<<" ";
             else
-                printf("%d ", arr[(i * (i-1)/2 + j - 1)]);
+                cout<<arr[(i * (i-1)/2 + j - 1)]<<" ";
         }
-        printf("\n");
+        cout<<"\n";
     }
 }
 
@@ -88,8 +88,8 @@ int main()
     int dim, choice;
     int i, j, a;
 
-    printf("Enter dimension: ");
-    scanf("%d", &dim);
+    cout<<"Enter dimension: ";
+    cin>>dim;
 
     symm1 = new Symmetric_Matrix(dim);
     symm2 = new Symmetric_Matrix(dim);
@@ -112,22 +112,22 @@ int main()
             symm2->symm_utm_display();
             break;
         case 2:
-            printf("Enter row number: ");
-            scanf("%d", &i);
-            printf("Enter column number: ");
-            scanf("%d", &j);
-            printf("Enter value: ");
-            scanf("%d", &a);
+            cout<<"Enter row number: ";
+            cin>>i;
+            cout<<"Enter column number: ";
+            cin>>j;
+            cout<<"Enter value: ";
+            cin>>a;
             symm1->symm_ltm_set(i, j, a);
             symm2->symm_utm_set(j, i, a);
             break;
         case 3:
-            printf("Enter row number: ");
-            scanf("%d", &i);
-            printf("Enter column number: ");
-            scanf("%d", &j);
-            printf("%d\n", symm1->symm_ltm_get(i, j));
-            printf("%d\n", symm2->symm_utm_get(i, j));
+            cout<<"Enter row number: ";
+            cin>>i;
+            cout<<"Enter column number: ";
+            cin>>j;
+            cout<<symm1->symm_ltm_get(i, j);
+            cout<<symm2->symm_utm_get(i, j);
        }
     } while (choice > 0 && choice < 4);
 }
