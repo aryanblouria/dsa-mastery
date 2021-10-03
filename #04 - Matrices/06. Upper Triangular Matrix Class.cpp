@@ -40,11 +40,11 @@ void Upper_Triangular_Matrix::utm_rowmajor_display()
         {
             int index = (dim * (i-1) - (i-1)*(i-2)/2) + j - i;
             if (j>=i)
-                printf("%d ", arr[index]);
+                cout<<arr[index]<<" ";
             else
-                printf("0 ");
+                cout<<"0 ";
         }
-        printf("\n");
+        cout<<"\n";
     }
 }
 
@@ -75,11 +75,11 @@ void Upper_Triangular_Matrix::utm_colmajor_display()
         {
             int index = (j * (j-1)/2) + i - 1;
             if (j>=i)
-                printf("%d ", arr[index]);
+                cout<<arr[index]<<" ";
             else
-                printf("0 ");
+                cout<<"0 ";
         }
-        printf("\n");
+        cout<<"\n";
     }
 }
 
@@ -108,8 +108,8 @@ int main()
     int dim, choice;
     int i, j, a;
 
-    printf("Enter dimension: ");
-    scanf("%d", &dim);
+    cout<<"Enter dimension: ";
+    cin>>dim;
 
     utm1 = new Upper_Triangular_Matrix(dim);
     utm2 = new Upper_Triangular_Matrix(dim);
@@ -132,22 +132,22 @@ int main()
             utm2->utm_colmajor_display();
             break;
         case 2:
-            printf("Enter row number: ");
-            scanf("%d", &i);
-            printf("Enter column number: ");
-            scanf("%d", &j);
-            printf("Enter value: ");
-            scanf("%d", &a);
+            cout<<"Enter row number: ";
+            cin>>i;
+            cout<<"Enter column number: ";
+            cin>>j;
+            cout<<"Enter value: ";
+            cin>>a;
             utm1->utm_rowmajor_set(i, j, a);
             utm2->utm_colmajor_set(i, j, a);
             break;
         case 3:
-            printf("Enter row number: ");
-            scanf("%d", &i);
-            printf("Enter column number: ");
-            scanf("%d", &j);
-            printf("%d\n", utm1->utm_rowmajor_get(i, j));
-            printf("%d\n", utm2->utm_colmajor_get(i, j));
+            cout<<"Enter row number: ";
+            cin>>i;
+            cout<<"Enter column number: ";
+            cin>>j;
+            cout<<utm1->utm_rowmajor_get(i, j);
+            cout<<utm2->utm_colmajor_get(i, j);
        }
     } while (choice > 0 && choice < 4);
 }
