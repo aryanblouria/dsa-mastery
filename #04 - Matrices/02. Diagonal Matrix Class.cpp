@@ -36,11 +36,11 @@ void Diagonal_Matrix::diag_display()
         for(int j = 0; j < dim; j++)
         {
             if (i==j)
-                printf("%d ", arr[i]);
+                cout<<arr[i]<<" ";
             else
-                printf("0 ");
+                cout<<"0 ";
         }
-        printf("\n");
+        cout<<"\n";
     }
 }
 
@@ -63,8 +63,8 @@ int main()
     int dim, choice;
     int i, j, a;
 
-    printf("Enter dimension: ");
-    scanf("%d", &dim);
+    cout<<"Enter dimension: ";
+    cin>>dim;
 
     d = new Diagonal_Matrix(dim);
 
@@ -85,20 +85,20 @@ int main()
             d->diag_display();
             break;
         case 2:
-            printf("Enter row number: ");
-            scanf("%d", &i);
-            printf("Enter column number: ");
-            scanf("%d", &j);
-            printf("Enter value: ");
-            scanf("%d", &a);
+            cout<<"Enter row number: ";
+            cin>>i;
+            cout<<"Enter column number: ";
+            cin>>j;
+            cout<<"Enter value: ";
+            cin>>a;
             d->diag_set(i, j, a);
             break;
         case 3:
-            printf("Enter row number: ");
-            scanf("%d", &i);
-            printf("Enter column number: ");
-            scanf("%d", &j);
-            printf("%d", d->diag_get(i, j));
+            cout<<"Enter row number: ";
+            cin>>i;
+            cout<<"Enter column number: ";
+            cin>>j;
+            cout<<d->diag_get(i, j);
        }
     } while (choice > 0 && choice < 4);
 }
