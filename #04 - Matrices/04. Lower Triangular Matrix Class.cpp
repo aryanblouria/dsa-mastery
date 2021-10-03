@@ -40,11 +40,11 @@ void Lower_Triangular_Matrix::ltm_rowmajor_display()
         {
             int index = (i * (i-1)/2) + j - 1;
             if (i>=j)
-                printf("%d ", arr[index]);
+                cout<<arr[index]<<" ";
             else
-                printf("0 ");
+                cout<<"0 ";
         }
-        printf("\n");
+        cout<<"\n";
     }
 }
 
@@ -75,11 +75,11 @@ void Lower_Triangular_Matrix::ltm_colmajor_display()
         {
             int index = (dim * (j-1) - (j-1)*(j-2)/2) + i - j;
             if (i>=j)
-                printf("%d ", arr[index]);
+                cout<<arr[index]<<" ";
             else
-                printf("0 ");
+                cout<<"0 ";
         }
-        printf("\n");
+        cout<<"\n";
     }
 }
 
@@ -108,8 +108,8 @@ int main()
     int dim, choice;
     int i, j, a;
 
-    printf("Enter dimension: ");
-    scanf("%d", &dim);
+    cout<<"Enter dimension: ";
+    cin>>dim;
 
     ltm1 = new Lower_Triangular_Matrix(dim);
     ltm2 = new Lower_Triangular_Matrix(dim);
@@ -132,22 +132,22 @@ int main()
             ltm2->ltm_colmajor_display();
             break;
         case 2:
-            printf("Enter row number: ");
-            scanf("%d", &i);
-            printf("Enter column number: ");
-            scanf("%d", &j);
-            printf("Enter value: ");
-            scanf("%d", &a);
+            cout<<"Enter row number: ";
+            cin>>i;
+            cout<<"Enter column number: ";
+            cin>>j;
+            cout<<"Enter value: ";
+            cin>>a;
             ltm1->ltm_rowmajor_set(i, j, a);
             ltm2->ltm_colmajor_set(i, j, a);
             break;
         case 3:
-            printf("Enter row number: ");
-            scanf("%d", &i);
-            printf("Enter column number: ");
-            scanf("%d", &j);
-            printf("%d\n", ltm1->ltm_rowmajor_get(i, j));
-            printf("%d\n", ltm2->ltm_colmajor_get(i, j));
+            cout<<"Enter row number: ";
+            cin>>i;
+            cout<<"Enter column number: ";
+            cin>>j;
+            cout<<ltm1->ltm_rowmajor_get(i, j);
+            cout<<ltm2->ltm_colmajor_get(i, j);
        }
     } while (choice > 0 && choice < 4);
 }
