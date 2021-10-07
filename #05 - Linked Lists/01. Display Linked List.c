@@ -36,11 +36,24 @@ void display(struct Node *p)
     printf("NULL");
 }
 
+void recursive_display(struct Node *p)
+{
+    if (p != 0)
+    {
+        printf("%d->", p->data);
+        recursive_display(p->next);
+    }
+}
+
+
 int main()
 {
     int arr[] = {1, 2, 3, 4, 5};
     create(arr, 5);
     display(first);
+    printf("\n");
+    recursive_display(first);
+    printf("NULL");
 }
 
 
