@@ -33,16 +33,26 @@ void display(struct Node *p)
         printf("%d->", p->data);
         p = p->next;
     }
-    printf("NULL");
+    printf("NULL\n");
 }
 
-void recursive_display(struct Node *p)
+int get_length(struct Node *p)
+{
+    int length = 0;
+    while (p != 0)
+    {
+        length++;
+        p = p->next;
+    }
+    return length;
+}
+
+int get_length_recursion(struct Node *p)
 {
     if (p != 0)
-    {
-        printf("%d->", p->data);
-        recursive_display(p->next);
-    }
+        return 1 + get_length_recursion(p->next);
+    else
+        return 0;
 }
 
 int main()
@@ -50,9 +60,7 @@ int main()
     int arr[] = {1, 2, 3, 4, 5};
     create(arr, 5);
     display(first);
-    printf("\n");
-    recursive_display(first);
-    printf("NULL");
+    printf("Length of Linked List: %d\n", get_length(first));
+    printf("Length of Linked List using Recursion: %d\n", get_length_recursion(first));
 }
-
 
