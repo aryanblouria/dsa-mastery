@@ -7,7 +7,7 @@ void swap(int* a, int* b)
     *b = c;
 }
 
-void insertionsort(int arr[], int n)
+void selectionnsort(int arr[], int n)
 {
     int k = 0;
     for (int i = 0; i < n-1; i++)
