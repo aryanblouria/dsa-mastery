@@ -27,7 +27,7 @@ int main()
     int arr[] = {5, 1, 2, 9, 7};
     int n = sizeof(arr)/sizeof(arr[0]);
 
-    insertionsort(arr, n);
+    selectionsort(arr, n);
 
     for (int i = 0; i < n; i++)
         printf("%d ", arr[i]);
